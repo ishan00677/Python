@@ -1,0 +1,22 @@
+fhand = open('concat.txt', 'r')
+Dict = {}
+for line in fhand:
+    words = line.split()
+    print(words)
+    for word in words:
+        if word in Dict:
+            Dict[word] = Dict[word]+1
+        else:
+            Dict[word] = 1
+print(Dict)
+
+# Create a list of tuples sorted by index 1 i.e. value field
+listofTuples = sorted(Dict.items(), reverse=True, key=lambda x: x[1])
+print(listofTuples)
+
+# Iterate over the sorted sequence
+for elem in listofTuples:
+    print(elem[0], " ::", elem[1])
+# Top 10 values
+
+print(listofTuples[0:10])
